@@ -1,6 +1,10 @@
 import os
-
 from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+
+
+db = SQLAlchemy()
+DB_NAME = "dev.db"
 
 
 def create_app(test_config=None):
@@ -8,8 +12,10 @@ def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
         SECRET_KEY='dev',
-        DATABASE=os.path.join(app.instance_path, 'weekly_schedule.sqlite'),
+        SQLALCHEMY_DATABASE_URI=f'sqlite:///{os.path.join(app.instance_path, DB_NAME)}',
+        SQLALCHEMY_TRACK_MODIFICATIONS=False
     )
+    db.init_app(app)
 
     if test_config is None:
         # load the instance config, if it exists, when not testing
@@ -24,7 +30,13 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    from . import db
-    db.init_app(app)
+    from .schema import Family, Member, Calendar
+    create_database(app)
 
     return app
+
+
+def create_database(app):
+    if not os.path.exists(os.path.join(app.instance_path, DB_NAME)):
+        db.create_all(app=app)
+        print('Created Database!')
