@@ -8,7 +8,10 @@
   </head>
   <body>
     <header>
-      <p class="title">Form train</p>
+      <div class="title">
+        <a href="/"><img src="{{ url_for('static', filename='dist/assets/logo.svg') }}" alt="logo" class="title-logo"/></a>
+        <p class="title-p">Family Planning</p>
+      </div>
       <nav class="menu">
         <ul class="menu-list">
               <li class="nav-button"><a id="login" href="/login">Log in</a></li>
