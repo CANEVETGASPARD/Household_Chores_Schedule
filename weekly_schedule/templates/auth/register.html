@@ -1,5 +1,21 @@
 {% extends "base.html" %} 
 {% block title %}Register{% endblock %}
+{% block link %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dist/css/form.css') }}">
+{% endblock %}
 {% block content%}
-<h1 align="center">Register</h1>
+<div class="form-container">
+    <form id="form" action="">
+      <input type="text" class="text-input" id="family-name" name="familyName" value="Family name" autocomplete="off"><br><br>
+      <input type="text" class="text-input" id="password" name="password" value="Password" autocomplete="off"><br><br>
+      <input type="text" class="text-input" id="confirm-password" name="confirmPassword" value="Confirm password" autocomplete="off"><br><br>
+      <input class="submit-button" type="submit" value="register">
+    </form>
+    <p class="form-p">
+      <a href="/login" class="form-a">Log in</a> 
+    </p>
+  </div>
+{% endblock %}
+{% block script %}
+<script type="module" src="{{ url_for('static', filename='dist/js/register.js') }}"></script>
 {% endblock %}
