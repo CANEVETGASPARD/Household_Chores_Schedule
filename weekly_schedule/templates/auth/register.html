@@ -1,7 +1,7 @@
 {% extends "base.html" %} 
 {% block title %}Register{% endblock %}
 {% block link %}
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dist/css/form.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/form.css') }}">
 {% endblock %}
 {% block content%}
 <div class="form-container">
@@ -17,5 +17,5 @@
   </div>
 {% endblock %}
 {% block script %}
-<script type="module" src="{{ url_for('static', filename='dist/js/register.js') }}"></script>
+<script type="module" src="{{ url_for('static', filename='dist/register.js') }}"></script>
 {% endblock %}

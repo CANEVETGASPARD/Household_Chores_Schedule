@@ -2,3 +2,4 @@
 .idea
 instance
 node_modules/
+weekly_schedule/static/dist

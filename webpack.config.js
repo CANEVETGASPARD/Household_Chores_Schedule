@@ -3,8 +3,8 @@ const path = require('path');
 module.exports = {
     mode:"development",
     entry: {
-        "register": path.resolve(__dirname, 'weekly_schedule/static/model/register.ts'),
-        "login": path.resolve(__dirname, 'weekly_schedule/static/model/login.ts'),
+        "register": path.resolve(__dirname, 'weekly_schedule/src/register.ts'),
+        "login": path.resolve(__dirname, 'weekly_schedule/src/login.ts'),
     },
     module: {
         rules: [
@@ -20,6 +20,6 @@ module.exports = {
     },
     output: {
         filename: '[name].js',
-        path: path.resolve(__dirname, 'weekly_schedule/static/dist/js')
+        path: path.resolve(__dirname, 'weekly_schedule/static/dist')
     },
     };
