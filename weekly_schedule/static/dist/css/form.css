@@ -1,0 +1,86 @@
+@font-face
+{
+    font-family: 'baloo';
+    src: url('polices/baloo/Baloo-Regular.ttf');
+}
+
+.form-container
+{
+    margin-top:60px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    height: 549px;
+    background: #B6D8F2;
+    border: 3px solid #FFFFFF;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+form
+{
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.text-input
+{
+    width: 400px;
+    height: 79px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    font-family: 'Baloo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 31px;
+    color: #9E9E9E;
+    border: none;
+    padding-left: 10px;
+}
+
+.submit-button
+{
+    width: 300px;
+    height: 50px;
+    background: #B6D8F2;
+    border: 3px solid #FFFFFF;
+    border-radius: 10px;
+    font-family: 'Baloo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 31px;
+    color: white;
+}
+
+.submit-button:hover
+{
+    background: white;
+    color: #B6D8F2;
+}
+
+.form-p
+{
+    margin-bottom: 0px;
+}
+
+.form-a
+{
+    font-family: "baloo";
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.form-a:hover
+{
+    text-decoration: underline 3px;
+}
