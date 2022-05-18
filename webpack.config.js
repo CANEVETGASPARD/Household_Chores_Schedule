@@ -3,6 +3,7 @@ const path = require('path');
 module.exports = {
     mode:"development",
     entry: {
+        "base": path.resolve(__dirname, 'weekly_schedule/src/base.ts'),
         "register": path.resolve(__dirname, 'weekly_schedule/src/register.ts'),
         "login": path.resolve(__dirname, 'weekly_schedule/src/login.ts'),
     },

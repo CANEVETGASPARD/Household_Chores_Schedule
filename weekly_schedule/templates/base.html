@@ -12,11 +12,16 @@
         <a href="/"><img src="{{ url_for('static', filename='assets/logo.svg') }}" alt="logo" class="title-logo"/></a>
         <p class="title-p">Family Planning</p>
       </div>
+
       <nav class="menu">
-        <ul class="menu-list">
+        <ul class="menu-list" id="menu-list">
               <li class="nav-button"><a id="login" href="/login">Log in</a></li>
               <li class="nav-button"><a id="register" href="/register">Register</a></li>
         </ul>
+
+        <div class="burger" id="burger-icon">
+          <span></span>
+        </div>
       </nav>
   </header>
 
@@ -26,6 +31,7 @@
     <p>Made by CANEVET Gaspard</p>
   </footer>
 
+  <script type="module" src="{{ url_for('static', filename='dist/base.js') }}"></script>
   {% block script %}{% endblock %}
   </body>
 </html>
