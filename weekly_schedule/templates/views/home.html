@@ -1,5 +1,31 @@
 {% extends "base.html" %}
 {% block title %}Home{% endblock %}
+{% block link %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/home.css') }}">
+{% endblock %}
 {% block content%}
-<h1 align="center">Home</h1>
+<div class="home-container">
+    <div class="left">
+        <div class="carousselImages">
+            <img src="{{ url_for('static', filename='assets/famillyHetero.svg') }}" alt="heteroFamily" class="familyLogo active">
+            <img src="{{ url_for('static', filename='assets/famillyMen.svg') }}" alt="menFamily" class="familyLogo">
+            <img src="{{ url_for('static', filename='assets/famillyWomen.svg') }}" alt="womenFamily" class="familyLogo">
+        </div>
+        <div class="carousselSlider" id="carousselSlider">
+            <span class="dot active"></span>
+            <span class="dotSlider"></span>
+            <span class="dot"></span>
+            <span class="dotSlider"></span>
+            <span class="dot"></span>
+        </div>
+
+    </div>
+    <div class="right">
+        <p>Currently struggling with setting and clearing table organisation. Create your own schedule to get rid of small disagreement.</p>
+        <div class="tryIt-button"><a href="/login">Try it</a></div>
+    </div>
+</div>
+{% endblock %}
+{% block script %}
+<script type="module" src="{{ url_for('static', filename='dist/home.js') }}"></script>
 {% endblock %}

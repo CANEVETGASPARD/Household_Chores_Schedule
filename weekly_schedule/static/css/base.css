@@ -108,7 +108,7 @@ footer > p:hover
     color: #B6D8F2;
 }
 
-@media screen and (max-width: 1024px) 
+@media screen and (max-width: 1200px) 
 {
     .burger
     {

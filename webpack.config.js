@@ -4,6 +4,7 @@ module.exports = {
     mode:"development",
     entry: {
         "base": path.resolve(__dirname, 'weekly_schedule/src/base.ts'),
+        "home": path.resolve(__dirname, 'weekly_schedule/src/home.ts'),
         "register": path.resolve(__dirname, 'weekly_schedule/src/register.ts'),
         "login": path.resolve(__dirname, 'weekly_schedule/src/login.ts'),
     },
