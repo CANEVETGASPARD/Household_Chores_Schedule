@@ -22,7 +22,13 @@
     </div>
     <div class="right">
         <p>Currently struggling with setting and clearing table organisation. Create your own schedule to get rid of small disagreement.</p>
-        <div class="tryIt-button"><a href="/login">Try it</a></div>
+        <div class="tryIt-button">
+            {% if user.is_authenticated %}
+                <a href="/create">Try it</a>
+            {% else %}
+                <a href="/login">Try it</a>
+            {% endif %}
+        </div>  
     </div>
 </div>
 {% endblock %}
