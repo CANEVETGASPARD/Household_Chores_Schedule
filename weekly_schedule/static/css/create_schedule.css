@@ -1,0 +1,167 @@
+@font-face
+{
+    font-family: 'baloo';
+    src: url('polices/baloo/Baloo-Regular.ttf');
+}
+
+
+.schedule-container
+{
+    margin-top:50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    min-width: max-content;
+}
+
+h1
+{
+    font-family: 'Baloo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 57px;
+    color: #B6D8F2;
+}
+
+.member-container
+{
+    background: #B6D8F2;
+    border: 3px solid #FFFFFF;
+    border-radius: 10px;
+    min-width: max-content;
+}
+
+.visible-form
+{
+    display: flex;
+}
+
+.visible-form > *:nth-child(2)
+{
+    flex:2;
+}
+
+.memberTextInput
+{
+    margin-left: 5px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    top: 17px;
+    height: max-content;
+}
+
+.memberTextInput > input
+{
+    border: None;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+    font-family: 'Baloo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 31px;
+    color: white;
+}
+
+.memberName
+{
+    max-width: 10em
+}
+
+.memberNickName
+{
+    max-width: 3em;
+}
+
+.week-form
+{
+    display: flex;
+    justify-content:space-evenly;
+}
+
+
+.week-form > *
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.week-form > * > input
+{
+    height: 25px;
+    margin: 0;
+}
+
+.legend
+{
+    width: 60px;
+}
+
+.legend > label
+{
+    font-family: 'Baloo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 25px;
+    height: 25px;
+    color: white;
+}
+
+.day 
+{
+    width: 36px;
+    height: 36px;
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.day > p 
+{
+    font-family: 'Baloo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 31px;
+    color: white;
+    align-items: center;
+}
+
+.formSettingsSymbols-container
+{
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    top: 17px;
+    height: max-content;
+    gap: 10px;
+    margin-right: 5px;
+}
+
+.generateScheduleButton-container
+{
+    margin-top: 30px;
+    display: flex;
+    justify-content: right;
+}
+
+.generateScheduleButton
+{
+    width: 205px;
+    height: 50px;
+    background: #B6D8F2;
+    border: 3px solid #FFFFFF;
+    border-radius: 10px;
+    font-family: "baloo";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+}

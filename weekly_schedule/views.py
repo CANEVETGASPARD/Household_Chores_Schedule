@@ -10,6 +10,6 @@ def home():
 
 
 @views.route('/create', methods=['GET', 'POST'])
-# @login_required
+@login_required
 def create_schedule():
     return render_template("views/create_schedule.html", user=current_user)

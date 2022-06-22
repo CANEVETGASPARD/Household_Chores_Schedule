@@ -1,5 +1,78 @@
 {% extends "base.html" %}
 {% block title %}Schedule{% endblock %}
+{% block link %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/create_schedule.css') }}">
+{% endblock %}
 {% block content%}
-<h1 align="center">Schedule Creation</h1>
+<div class="schedule-container">
+    <div class="familyMembers-container">
+        <h1>Family members</h1>
+        <div class="member-container">
+            <form method="POST" class="member-form">
+                <div class="visible-form">
+                    <div class="memberTextInput">
+                        <input type="text" class="memberName" name="name" value="Gaspard">
+                        <input type="text" class="memberNickName" name="nickname" value="Gas">
+                    </div>
+                    <div class="week-form">
+                        <div class="legend">
+                            <div class="day"></div>
+                            <label for="lunch">lunch</label>
+                            <label for="diner">diner</label>
+                        </div>
+                        <div class="monday">
+                            <div class="day"><p>M</p></div>
+                            <input type="checkbox" id="lunch" name="monday">
+                            <input type="checkbox" id="diner" name="monday">
+                        </div>
+                        <div class="thuesday">
+                            <div class="day"><p>T</p></div>
+                            <input type="checkbox" id="lunch" name="thuesday">
+                            <input type="checkbox" id="diner" name="thuesday">
+                        </div>
+                        <div class="wednesday">
+                            <div class="day"><p>W</p></div>
+                            <input type="checkbox" id="lunch" name="wednesday">
+                            <input type="checkbox" id="diner" name="wednesday">
+                        </div>
+                        <div class="thursday">
+                            <div class="day"><p>T</p></div>
+                            <input type="checkbox" id="lunch" name="thursday">
+                            <input type="checkbox" id="diner" name="thursday">
+                        </div>
+                        <div class="friday">
+                            <div class="day"><p>F</p></div>
+                            <input type="checkbox" id="lunch" name="friday">
+                            <input type="checkbox" id="diner" name="friday">
+                        </div>
+                        <div class="saturday">
+                            <div class="day"><p>S</p></div>
+                            <input type="checkbox" id="lunch" name="saturday">
+                            <input type="checkbox" id="diner" name="saturday">
+                        </div>
+                        <div class="sunday">
+                            <div class="day"><p>S</p></div>
+                            <input type="checkbox" id="lunch" name="sunday">
+                            <input type="checkbox" id="diner" name="sunday">
+                        </div>
+                    </div>
+                    <div class="formSettingsSymbols-container">
+                        <img src="{{ url_for('static', filename='assets/formUpdate.png') }}" alt="form-update" class="update">
+                        <img src="{{ url_for('static', filename='assets/formRemove.png') }}" alt="form-remove" class="remove">
+                        <img src="{{ url_for('static', filename='assets/formValidation.png') }}" alt="form-validation" class="validation">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="generateScheduleButton-container">
+            <button class="generateScheduleButton">Generate schedule</button>
+        </div>
+    </div>
+    <div class="familySchedule-container">
+        <div class="scheduleHeader-container">
+            <h1>Family schedule</h1>
+            <p>Score:  </p>
+        </div>
+    </div>
+</div>
 {% endblock %}
