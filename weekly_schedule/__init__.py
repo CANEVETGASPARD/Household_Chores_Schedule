@@ -30,7 +30,7 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    from .schema import Family, Member, Calendar
+    from .schema import Family, Member
     create_database(app)
 
     from .auth import auth
