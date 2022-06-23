@@ -1,7 +1,7 @@
 @font-face
 {
     font-family: 'baloo';
-    src: url('polices/baloo/Baloo-Regular.ttf');
+    src: url('../assets/polices/baloo/Baloo-Regular.ttf');
 }
 
 .home-container

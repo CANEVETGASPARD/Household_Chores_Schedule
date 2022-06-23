@@ -4,9 +4,12 @@
   "description": "<p>Small algorithm that generates household chores schedules for your family.\r Currently, we are only able to create one schedule and to print it.\r Next step will be to create a simple interface. It will simplify the usability of the algorithm and give the possibility to save your schedule</p>",
   "main": "webpack.config.js",
   "directories": {
-    "test": "tests"
+    "test": "tests",
+    "build": "webpack"
   },
   "devDependencies": {
+    "css-loader": "^6.7.1",
+    "style-loader": "^3.3.1",
     "typescript": "^4.6.4",
     "typescript-loader": "^1.1.3",
     "webpack": "^5.72.1",

@@ -7,6 +7,7 @@ module.exports = {
         "home": path.resolve(__dirname, 'weekly_schedule/static/src/home.ts'),
         "register": path.resolve(__dirname, 'weekly_schedule/static/src/register.ts'),
         "login": path.resolve(__dirname, 'weekly_schedule/static/src/login.ts'),
+        "create_schedule": path.resolve(__dirname, 'weekly_schedule/static/src/create_schedule.ts'),
     },
     module: {
         rules: [
@@ -15,10 +16,18 @@ module.exports = {
             exclude: [/node_modules/],
             loader: 'ts-loader'
         },
+        {
+            test: /\.(png|svg|jpg|jpeg|gif|woff|woff2|eot|ttf|otf)$/i,
+            type: 'asset/resource',
+        },
+        {
+            test: /\.css$/i,
+            use: ["style-loader", "css-loader"],
+        },
         ],
     },
     resolve: {
-        extensions: ['.ts'],
+        extensions: ['.ts', '.css'],
     },
     output: {
         filename: '[name].js',

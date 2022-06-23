@@ -1,0 +1,105 @@
+@font-face
+{
+    font-family: 'baloo';
+    src: url('../../../assets/polices/baloo/Baloo-Regular.ttf');
+}
+
+.member-container
+{
+    background: #B6D8F2;
+    border: 3px solid #FFFFFF;
+    border-radius: 10px;
+    width: max-content;
+    padding: 10px;
+}
+
+.member-form
+{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.memberTextInput
+{
+    display: flex;
+    justify-content: center;
+}
+
+.memberName
+{
+    border: None;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+    font-family: 'Baloo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 31px;
+    color: white;
+    max-width: 10em;
+    text-align: center;
+}
+
+.week-form
+{
+    display: flex;
+    justify-content:space-evenly;
+}
+
+
+.week-form > *
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.week-form > * > input
+{
+    height: 25px;
+    margin: 0;
+}
+
+.legend
+{
+    width: 60px;
+}
+
+.legend > label
+{
+    font-family: 'Baloo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 25px;
+    height: 25px;
+    color: white;
+}
+
+.day 
+{
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.day > p 
+{
+    font-family: 'Baloo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 31px;
+    color: white;
+}
+
+.formSettingsSymbols-container
+{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
