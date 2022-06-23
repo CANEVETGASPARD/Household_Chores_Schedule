@@ -23,12 +23,12 @@ function createDayContainer(dayName: string): HTMLDivElement{
     let lunchInput = document.createElement("input") as HTMLInputElement;
     lunchInput.setAttribute("type","checkbox");
     lunchInput.setAttribute("id","lunch");
-    lunchInput.setAttribute("name",dayName);
+    lunchInput.setAttribute("name",dayName+"Lunch");
 
     let dinerInput = document.createElement("input") as HTMLInputElement;
     dinerInput.setAttribute("type","checkbox");
     dinerInput.setAttribute("id","diner");
-    dinerInput.setAttribute("name",dayName);
+    dinerInput.setAttribute("name",dayName+"Diner");
 
     dayContainer.appendChild(dayPContainer);
     dayContainer.appendChild(lunchInput);
@@ -63,18 +63,15 @@ function createSettingsSymbolsContainer(): HTMLDivElement {
     let settingsSymbolsContainer = document.createElement("div") as HTMLDivElement;
     settingsSymbolsContainer.classList.add("formSettingsSymbols-container");
 
-    let validationSymbolImg = document.createElement("img") as HTMLImageElement;
-    validationSymbolImg.setAttribute("src","{{ url_for('static', filename='assets/formValidation.png') }}");
-    validationSymbolImg.setAttribute("alt","form-validation");
-    validationSymbolImg.classList.add("validation");
+    let validationSymbol = document.createElement("button") as HTMLButtonElement;
+    validationSymbol.classList.add("validation");
+    validationSymbol.setAttribute("type","submit")
 
-    let removeSymbolImg = document.createElement("img") as HTMLImageElement;
-    removeSymbolImg.setAttribute("src","{{ url_for('static', filename='assets/formRemove.png') }}");
-    removeSymbolImg.setAttribute("alt","form-remove");
-    removeSymbolImg.classList.add("remove");
+    let removeSymbol = document.createElement("button") as HTMLButtonElement;
+    removeSymbol.classList.add("remove");
 
-    settingsSymbolsContainer.appendChild(validationSymbolImg);
-    settingsSymbolsContainer.appendChild(removeSymbolImg);
+    settingsSymbolsContainer.appendChild(validationSymbol);
+    settingsSymbolsContainer.appendChild(removeSymbol);
 
     return settingsSymbolsContainer
 }

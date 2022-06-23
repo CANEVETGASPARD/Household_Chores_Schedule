@@ -1,4 +1,5 @@
-from flask import Blueprint, render_template
+from time import process_time_ns
+from flask import Blueprint, render_template, request
 from flask_login import login_required, current_user
 
 views = Blueprint('views', __name__)
@@ -12,4 +13,6 @@ def home():
 @views.route('/create', methods=['GET', 'POST'])
 @login_required
 def create_schedule():
+    if request.method == 'POST':
+        print(request.form)
     return render_template("views/create_schedule.html", user=current_user)
