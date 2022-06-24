@@ -23,12 +23,14 @@ function createDayContainer(dayName: string): HTMLDivElement{
     let lunchInput = document.createElement("input") as HTMLInputElement;
     lunchInput.setAttribute("type","checkbox");
     lunchInput.setAttribute("id","lunch");
-    lunchInput.setAttribute("name",dayName+"Lunch");
+    lunchInput.setAttribute("name",dayName);
+    lunchInput.setAttribute("value","lunch");
 
     let dinerInput = document.createElement("input") as HTMLInputElement;
     dinerInput.setAttribute("type","checkbox");
     dinerInput.setAttribute("id","diner");
-    dinerInput.setAttribute("name",dayName+"Diner");
+    dinerInput.setAttribute("name",dayName);
+    dinerInput.setAttribute("value","diner");
 
     dayContainer.appendChild(dayPContainer);
     dayContainer.appendChild(lunchInput);

@@ -1,9 +1,7 @@
-from time import process_time_ns
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, jsonify
 from flask_login import login_required, current_user
 
 views = Blueprint('views', __name__)
-
 
 @views.route('/', methods=['GET', 'POST'])
 def home():
@@ -14,5 +12,12 @@ def home():
 @login_required
 def create_schedule():
     if request.method == 'POST':
-        print(request.form)
+        membeDic = request.form.to_dict(flat=False)
+        print(membeDic)
+
     return render_template("views/create_schedule.html", user=current_user)
+
+@views.route('/getFamilyMembersData',methods=['GET'])
+@login_required
+def getFamilyMembersData():
+    return jsonify(members = current_user.members)

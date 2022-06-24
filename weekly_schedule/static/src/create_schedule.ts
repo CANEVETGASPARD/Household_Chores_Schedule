@@ -8,6 +8,12 @@ function addBlankMemberContainer() {
     familyMembersContainer.insertBefore(blankMember, familyMembersContainer.firstChild);
 }
 
+fetch("/getFamilyMembersData", {
+    method: "GET",
+  })
+  .then((response) => response.json())
+  .then((data) => console.log(data["familyId"]));
+
 let addBlankMemberButton = document.querySelector(".addMemberButton") as HTMLButtonElement
 addBlankMemberButton.addEventListener("click",(e:Event) =>{
     addBlankMemberContainer();
