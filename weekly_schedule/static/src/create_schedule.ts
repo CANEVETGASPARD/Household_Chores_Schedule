@@ -1,20 +1,19 @@
 import "./utils/css/familyMemberForm";
-import { createBlankMemberContainer } from "./utils/familyMemberForm";
-
-function addBlankMemberContainer() {
-    let familyMembersContainer = document.querySelector(".members-container") as HTMLDivElement;
-    let blankMember: HTMLDivElement = createBlankMemberContainer();
-
-    familyMembersContainer.insertBefore(blankMember, familyMembersContainer.firstChild);
-}
+import { addAllFilledMemberContainer,addBlankMemberContainer } from "./utils/familyMemberForm";
 
 fetch("/getFamilyMembersData", {
     method: "GET",
   })
   .then((response) => response.json())
-  .then((data) => console.log(data["familyId"]));
+  .then((data) => {
+        if(Object.keys(data).length == 0) {
+            addBlankMemberContainer();
+        } else {
+            addAllFilledMemberContainer(data);
+        }
+    });
 
-let addBlankMemberButton = document.querySelector(".addMemberButton") as HTMLButtonElement
+let addBlankMemberButton = document.querySelector(".addMemberButton") as HTMLButtonElement;
 addBlankMemberButton.addEventListener("click",(e:Event) =>{
     addBlankMemberContainer();
 });

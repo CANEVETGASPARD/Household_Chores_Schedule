@@ -1,0 +1,1 @@
+export type FormCheckBoxValue = {[day:string]: {[dayTime:string]: boolean}}
