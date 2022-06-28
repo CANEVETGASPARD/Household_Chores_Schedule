@@ -47,13 +47,9 @@ header
     padding: 0;
     list-style: none;
     display: flex;
+    gap: 15px;
     justify-content: space-between;
     width: max-content;
-}
-
-.nav-button:first-child
-{
-    margin-right: 15px;
 }
 
 .nav-button > a
