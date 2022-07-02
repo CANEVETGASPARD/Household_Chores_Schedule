@@ -82,3 +82,15 @@ def getFamilyMembersData():
             "sunday" : member.sunday
         }
     return familyMembersJson
+
+@views.route('/delete-member', methods=['POST'])
+@login_required
+def delete_note():
+    memberData = json.loads(request.data)
+    memberId = memberData['id']
+    member = Member.query.filter_by(id=memberId).first()
+    if member:
+        if member.family_id == current_user.id:
+            db.session.delete(member)
+            db.session.commit()
+    return jsonify({})

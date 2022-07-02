@@ -69,7 +69,16 @@ function createTaskLabelContainer(): HTMLDivElement{
     return legendContainer
 }
 
-function createSettingsSymbolsContainer(): HTMLDivElement {
+function deleteMember(memberId:string) {
+    fetch("/delete-member", {
+      method: "POST",
+      body: JSON.stringify({ id: memberId }),
+    }).then((_res) => {
+      window.location.href = "/create";
+    });
+  }
+
+function createSettingsSymbolsContainer(memberId:string): HTMLDivElement {
     let settingsSymbolsContainer = document.createElement("div") as HTMLDivElement;
     settingsSymbolsContainer.classList.add("formSettingsSymbols-container");
 
@@ -77,8 +86,9 @@ function createSettingsSymbolsContainer(): HTMLDivElement {
     validationSymbol.classList.add("validation");
     validationSymbol.setAttribute("type","submit")
 
-    let removeSymbol = document.createElement("button") as HTMLButtonElement;
+    let removeSymbol = document.createElement("div") as HTMLDivElement;
     removeSymbol.classList.add("remove");
+    removeSymbol.addEventListener("click", () =>{deleteMember(memberId)});
 
     settingsSymbolsContainer.appendChild(validationSymbol);
     settingsSymbolsContainer.appendChild(removeSymbol);
@@ -86,7 +96,7 @@ function createSettingsSymbolsContainer(): HTMLDivElement {
     return settingsSymbolsContainer
 }
 
-function createWeekForm(memberName: string, memberFormCheckboxValue: FormCheckBoxValue): HTMLFormElement{
+function createWeekForm(memberId:string, memberName: string, memberFormCheckboxValue: FormCheckBoxValue): HTMLFormElement{
     let memberForm = document.createElement("form") as HTMLFormElement;
     memberForm.setAttribute("method", "POST");
     memberForm.classList.add("member-form");
@@ -105,7 +115,7 @@ function createWeekForm(memberName: string, memberFormCheckboxValue: FormCheckBo
         weekForm.appendChild(dayContainer);
     }
 
-    let settingsSymbolsContainer: HTMLDivElement = createSettingsSymbolsContainer();
+    let settingsSymbolsContainer: HTMLDivElement = createSettingsSymbolsContainer(memberId);
 
     memberForm.appendChild(memberTextInput);
     memberForm.appendChild(weekForm);
@@ -114,11 +124,11 @@ function createWeekForm(memberName: string, memberFormCheckboxValue: FormCheckBo
     return memberForm;
 }
 
-function createFilledMemberContainer(filledFormCheckboxValue: FormCheckBoxValue, memberName: string): HTMLDivElement {
+function createFilledMemberContainer(memberId:string,filledFormCheckboxValue: FormCheckBoxValue, memberName: string): HTMLDivElement {
     let memberContainer = document.createElement("div") as HTMLDivElement;
     memberContainer.classList.add("member-container");
 
-    let memberForm: HTMLFormElement = createWeekForm(memberName,filledFormCheckboxValue);
+    let memberForm: HTMLFormElement = createWeekForm(memberId,memberName,filledFormCheckboxValue);
     memberContainer.appendChild(memberForm);
 
     return memberContainer;
@@ -136,7 +146,7 @@ function createBlankMemberContainer(): HTMLDivElement {
         "friday":{"lunch":false,"diner":false},
         "saturday":{"lunch":false,"diner":false},
         "sunday":{"lunch":false,"diner":false}};
-    let memberForm: HTMLFormElement = createWeekForm("Name",blankFormCheckboxValue);
+    let memberForm: HTMLFormElement = createWeekForm("None","Name",blankFormCheckboxValue);
     memberContainer.appendChild(memberForm);
 
     return memberContainer;
@@ -164,10 +174,10 @@ function createMemberNameAndFormCheckboxValueParameter(memberData: any): [string
     return [memberName,formCheckboxValue]
 }
 
-function addFilledMemberContainer(memberData: any) {
+function addFilledMemberContainer(memberId:string,memberData: any) {
     let familyMembersContainer = document.querySelector(".members-container") as HTMLDivElement;
     let [memberName,formCheckboxValue]: [string,FormCheckBoxValue] = createMemberNameAndFormCheckboxValueParameter(memberData);
-    let filledMember: HTMLDivElement = createFilledMemberContainer(formCheckboxValue,memberName);
+    let filledMember: HTMLDivElement = createFilledMemberContainer(memberId,formCheckboxValue,memberName);
     familyMembersContainer.insertBefore(filledMember, familyMembersContainer.firstChild);
 }
 
@@ -181,6 +191,6 @@ export function addAllFilledMemberContainer(data:any) {
     let memberKeyList: any[] = Object.keys(data);
     for (let keyIndex: number = 0; keyIndex<memberKeyList.length; keyIndex++) { 
         let memberData: any = data[memberKeyList[keyIndex]];
-        addFilledMemberContainer(memberData);
+        addFilledMemberContainer(memberKeyList[keyIndex],memberData);
     }
 }
