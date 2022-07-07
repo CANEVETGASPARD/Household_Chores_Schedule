@@ -15,18 +15,18 @@ export class Group {
         }
     }
 
-    public getGroupSize() {
+    public getGroupSize(): number {
         return this.groupSize;
     }
 
-    public getMembers() {
+    public getMembers(): Member[] {
         return this.Members;
     }
 
     public toString(): string{
-        let output: string = "number of members : " + this.groupSize + "\n" + "Members details : ";
-        for(let memberIndex: number = 0; memberIndex<this.Members.length;memberIndex++) {
-            output += "\n" + this.Members[memberIndex].toString();
+        let output: string = "number of members : " + this.getGroupSize() + "\n" + "Members details : ";
+        for(let memberIndex: number = 0; memberIndex<this.getMembers().length;memberIndex++) {
+            output += "\n" + this.getMembers()[memberIndex].toString();
         }
         return output
     }

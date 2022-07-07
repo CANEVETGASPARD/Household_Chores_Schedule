@@ -38,11 +38,11 @@ export class Member {
     }
 
     public toString(): string{
-        let output = "nom : " + this.name + "\n" + "repas : ";
-        for (let mealIndex = 0;mealIndex<this.mealInTheWeek.length;mealIndex++){
-            output += "meal on " + this.mealInTheWeek[mealIndex][0] + " : " + this.mealInTheWeek[mealIndex][1] + ", ";
+        let output = "nom : " + this.getName() + "\n" + "repas : ";
+        for (let mealIndex = 0;mealIndex<this.getMealInTheWeek().length;mealIndex++){
+            output += "meal on " + this.getMealInTheWeek()[mealIndex][0] + " : " + this.getMealInTheWeek()[mealIndex][1] + ", ";
         }
-        output += "\n" + "minimum number of task in the week : " + this.minimumNumberOfTaskInTheWeek;
+        output += "\n" + "minimum number of task in the week : " + this.getMinimumNumberOfTaskInTheWeek();
 
         return output
     }
