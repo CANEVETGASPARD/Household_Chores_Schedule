@@ -5,12 +5,12 @@ export class Group {
     private groupSize: number;
     private Members: Member[];
 
-    constructor(membersData: any, numberOfTaskForTheMeal:number) {
+    constructor(groupData: any, numberOfTaskForTheMeal:number) {
         this.Members = [];
-        let memberKeyList: any[] = Object.keys(membersData);
+        let memberKeyList: any[] = Object.keys(groupData);
         this.groupSize = memberKeyList.length;
         for (let keyIndex: number = 0; keyIndex<memberKeyList.length; keyIndex++) { 
-            let memberData: any = membersData[memberKeyList[keyIndex]];
+            let memberData: any = groupData[memberKeyList[keyIndex]];
             let member = new Member(memberData,numberOfTaskForTheMeal);
             this.Members.push(member);
         }
