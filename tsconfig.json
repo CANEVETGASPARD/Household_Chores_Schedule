@@ -3,7 +3,5 @@
         "target": "ES5",
         "module": "esnext",
         "strict": true
-    },
-    "include": ["weekly_schedule/src/**/*"],
-    "exclude": ["node_modules"]
+    }
 }
