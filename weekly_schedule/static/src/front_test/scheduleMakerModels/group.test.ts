@@ -1,5 +1,5 @@
 import { Group } from "../../utils/scheduleMakerModels/group";
-import { MealInTheWeek } from "../../utils/customType";
+import { MealInTheWeek } from "../../utils/mealInTheWeek";
 
 const groupData: any = {
         "1":{
@@ -39,76 +39,49 @@ const group: Group = new Group(groupData,numberOfTaskForTheMeal);
 describe("tests on group class", function() {
     describe("test on findAvailableMembers function", function() {
         test("Should return Gas and Ger as available members", function() {
-            const mealInTheWeekMondayDiner: MealInTheWeek = {
-                "day":"monday",
-                "meal":2
-            }
+            const mealInTheWeekMondayDiner: MealInTheWeek = new MealInTheWeek("monday",2);
             expect(group.findAvailableMembers(mealInTheWeekMondayDiner)).toEqual(["Gas","Ger"])
         })
     
         test("Should return Gas, Ger and Ant as available members", function() {
-            const mealInTheWeekMondayLunch: MealInTheWeek = {
-                "day":"monday",
-                "meal":1
-            }
+            const mealInTheWeekMondayLunch: MealInTheWeek = new MealInTheWeek("monday",1);
             expect(group.findAvailableMembers(mealInTheWeekMondayLunch)).toEqual(["Gas","Ger","Ant"])
         })
     
         test("Should return no available members", function() {
-            const mealInTheWeekSundayDiner: MealInTheWeek = {
-                "day":"sunday",
-                "meal":2
-            }
+            const mealInTheWeekSundayDiner: MealInTheWeek = new MealInTheWeek("sunday",2);
             expect(group.findAvailableMembers(mealInTheWeekSundayDiner)).toEqual([])
         })
     
         test("Should return Ger and Ant as available members", function() {
-            const mealInTheWeekFridayDiner: MealInTheWeek = {
-                "day":"friday",
-                "meal":2
-            }
+            const mealInTheWeekFridayDiner: MealInTheWeek = new MealInTheWeek("friday",2);
             expect(group.findAvailableMembers(mealInTheWeekFridayDiner)).toEqual(["Ger","Ant"])
         })
     })
 
     describe("test on findNewAvailableMembers", function() {
         test("Should return Gas and Ger as available members", function() {
-            const mealInTheWeekMondayDiner: MealInTheWeek = {
-                "day":"monday",
-                "meal":2
-            }
+            const mealInTheWeekMondayDiner: MealInTheWeek = new MealInTheWeek("monday",2);
             expect(group.findNewAvailableMembers("Ant",mealInTheWeekMondayDiner)).toEqual(["Gas","Ger"])
         })
     
         test("Should return Ger and Ant as available members", function() {
-            const mealInTheWeekMondayLunch: MealInTheWeek = {
-                "day":"monday",
-                "meal":1
-            }
+            const mealInTheWeekMondayLunch: MealInTheWeek = new MealInTheWeek("monday",1);
             expect(group.findNewAvailableMembers("Gas",mealInTheWeekMondayLunch)).toEqual(["Ger","Ant"])
         })
     
         test("Should return no available members", function() {
-            const mealInTheWeekSundayDiner: MealInTheWeek = {
-                "day":"sunday",
-                "meal":2
-            }
+            const mealInTheWeekSundayDiner: MealInTheWeek = new MealInTheWeek("sunday",2);
             expect(group.findNewAvailableMembers("Ant",mealInTheWeekSundayDiner)).toEqual([])
         })
 
         test("Should return no available members", function() {
-            const mealInTheWeekThursdayDiner: MealInTheWeek = {
-                "day":"Thursday",
-                "meal":2
-            }
+            const mealInTheWeekThursdayDiner: MealInTheWeek = new MealInTheWeek("thursday",2);
             expect(group.findNewAvailableMembers("Gas",mealInTheWeekThursdayDiner)).toEqual([])
         })
     
         test("Should return Ant as available members", function() {
-            const mealInTheWeekFridayDiner: MealInTheWeek = {
-                "day":"friday",
-                "meal":2
-            }
+            const mealInTheWeekFridayDiner: MealInTheWeek = new MealInTheWeek("friday",2);
             expect(group.findNewAvailableMembers("Ger",mealInTheWeekFridayDiner)).toEqual(["Ant"])
         })
     })

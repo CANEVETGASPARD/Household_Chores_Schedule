@@ -1,5 +1,5 @@
 import { Member } from "./member"
-import { MealInTheWeek } from "../customType";
+import { MealInTheWeek } from "../mealInTheWeek";
 
 export class Group {
     private groupSize: number;

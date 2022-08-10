@@ -1,4 +1,4 @@
-import { MealInTheWeek } from "../customType";
+import { MealInTheWeek } from "../mealInTheWeek"
 
 export class Member {
     private name:string;
@@ -15,10 +15,7 @@ export class Member {
                 this.name = memberData[memberDataKeyList[keyIndex]];
             } else {
                 if(memberData[memberDataKeyList[keyIndex]] != 0) {
-                    this.mealInTheWeek.push({
-                        "day":memberDataKeyList[keyIndex],
-                        "meal":memberData[memberDataKeyList[keyIndex]]
-                    });
+                    this.mealInTheWeek.push(new MealInTheWeek(memberDataKeyList[keyIndex],memberData[memberDataKeyList[keyIndex]]));
                     if (memberData[memberDataKeyList[keyIndex]] == 3){
                         numberOfMealInTheWeek += 2; //member present both in meal and dinner => thus two meals
                     } else {
@@ -33,7 +30,7 @@ export class Member {
     public toString(): string{
         let output = "nom : " + this.getName() + "\n" + "repas : ";
         for (let mealIndex = 0;mealIndex<this.getMealInTheWeek().length;mealIndex++){
-            output += "meal on " + this.getMealInTheWeek()[mealIndex].day + " : " + this.getMealInTheWeek()[mealIndex].meal + ", ";
+            output += "meal on " + this.getMealInTheWeek()[mealIndex].getDay() + " : " + this.getMealInTheWeek()[mealIndex].getMeal() + ", ";
         }
         output += "\n" + "minimum number of task in the week : " + this.getMinimumNumberOfTaskInTheWeek();
 
@@ -43,7 +40,7 @@ export class Member {
     public isAvailable(studiedMealInTheWeek: MealInTheWeek): boolean {
         let isAvailable: boolean = false;
         for (let mealInTheWeekListIndex = 0; mealInTheWeekListIndex<this.getMealInTheWeek().length;mealInTheWeekListIndex++) {
-            if(this.getMealInTheWeek()[mealInTheWeekListIndex].day.toLowerCase() == studiedMealInTheWeek.day.toLowerCase() && (this.getMealInTheWeek()[mealInTheWeekListIndex].meal == studiedMealInTheWeek.meal || this.getMealInTheWeek()[mealInTheWeekListIndex].meal == 3)) {
+            if(this.getMealInTheWeek()[mealInTheWeekListIndex].getDay().toLowerCase() == studiedMealInTheWeek.getDay().toLowerCase() && (this.getMealInTheWeek()[mealInTheWeekListIndex].getMeal() == studiedMealInTheWeek.getMeal() || this.getMealInTheWeek()[mealInTheWeekListIndex].getMeal() == 3)) {
                 isAvailable = true;
             }
         }
