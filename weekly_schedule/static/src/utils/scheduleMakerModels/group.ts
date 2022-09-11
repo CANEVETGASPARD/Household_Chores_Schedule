@@ -44,11 +44,11 @@ export class Group {
         return differentAvailableMembersWithinGroup;
     } 
 
-    private getGroupSize(): number {
+    public getGroupSize(): number {
         return this.groupSize;
     }
 
-    private getMembers(): Member[] {
+    public getMembers(): Member[] {
         return this.Members;
     }
 }

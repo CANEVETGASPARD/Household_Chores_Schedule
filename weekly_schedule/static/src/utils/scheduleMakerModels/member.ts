@@ -55,7 +55,7 @@ export class Member {
         return this.mealInTheWeek;
     }
 
-    private getMinimumNumberOfTaskInTheWeek(): number {
+    public getMinimumNumberOfTaskInTheWeek(): number {
         return this.minimumNumberOfTaskInTheWeek;
     }
 }

@@ -1,21 +1,42 @@
 import "./utils/css/familyMemberForm";
 import { addAllFilledMemberContainer,addBlankMemberContainer } from "./utils/familyMemberForm";
-import { Group } from "./utils/scheduleMakerModels/group";
+import { Schedule } from "./utils/scheduleMakerModels/schedule";
 
-fetch("/getFamilyMembersData", {
-    method: "GET",
-  })
-  .then((response) => response.json())
-  .then((data) => {
+async function fetchFamilyMembersData(): Promise<any> {
+    let data : Promise<any> = await fetch("/getFamilyMembersData", {
+        method: "GET",
+      }).then((response) => response.json());
+    return data
+}
+
+let familyMembersData: Promise<any> = fetchFamilyMembersData();
+
+familyMembersData.then((data) =>{
+    if(Object.keys(data).length == 0) {
+        addBlankMemberContainer();
+    } else {
+        addAllFilledMemberContainer(data);
+    }
+}) 
+
+let generateScheduleButton = document.querySelector(".generateScheduleButton") as HTMLButtonElement;
+generateScheduleButton.addEventListener("click", (e:Event) => {
+    familyMembersData.then((data) => {
         if(Object.keys(data).length == 0) {
-            addBlankMemberContainer();
+            console.log("no member")
         } else {
-            addAllFilledMemberContainer(data);
+            let numberOfMealPerDay = 2;
             let numberOfTaskForAMeal = 2;
-            let Familygroup = new Group(data, numberOfTaskForAMeal);
-            console.log(Familygroup.toString());
+            let familySchedule = new Schedule(data, numberOfMealPerDay, numberOfTaskForAMeal);
+            console.log(familySchedule.computeNumberOfTaskPerGroupMember());
+            console.log(familySchedule.computeHeuristicCost());
+            familySchedule.heuristic(300);
+            console.log(familySchedule.computeNumberOfTaskPerGroupMember());
+            console.log(familySchedule.computeHeuristicCost());
+            console.log(familySchedule.getSchedule())
         }
     });
+})
 
 let addBlankMemberButton = document.querySelector(".addMemberButton") as HTMLButtonElement;
 addBlankMemberButton.addEventListener("click",(e:Event) =>{
