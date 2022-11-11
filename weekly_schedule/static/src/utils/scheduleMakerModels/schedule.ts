@@ -9,7 +9,7 @@ export class Schedule {
    private group: Group;
    private schedule: string[][][];
 
-   private readonly DAYS = ["monday","tuesday","wednesday","thursday","friday","saturday","sunday"];
+   public readonly DAYS = ["monday","tuesday","wednesday","thursday","friday","saturday","sunday"];
 
    constructor(membersData: any, numberOfMealPerDay: number, numberOfTaskForTheMeal:number) {
       this.numberOfMealPerDay = numberOfMealPerDay;
@@ -102,11 +102,11 @@ export class Schedule {
       return numberOfTaskPerGroupMember
    }
 
-   private getNumberOfMealPerDay(): number {
+   public getNumberOfMealPerDay(): number {
       return this.numberOfMealPerDay;
    } 
 
-   private getNumberOfTaskForTheMeal(): number {
+   public getNumberOfTaskForTheMeal(): number {
       return this.numberOfTaskForTheMeal;
    }
 

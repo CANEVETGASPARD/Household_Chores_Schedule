@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/create_schedule.css') }}">
 {% endblock %}
 {% block content%}
-<div class="schedule-container">
+<div class="main-container">
     <div class="familyMembers-container">
         <h1>Family members</h1>
         <div class="members-container"></div>
@@ -13,11 +13,13 @@
         </div>
     </div>
     <div class="familySchedule-container">
-        <h1>Family schedule</h1>
-        <div class="generateScheduleButton-container">
-            <button class="generateScheduleButton">Generate schedule</button>
+        <div class="scheduleHeader">
+            <h1>Family schedule</h1>
+            <div class="generateScheduleButton-container">
+                <button class="generateScheduleButton">Generate schedule</button>
+            </div>
         </div>
-        <p>Score:  </p>
+        <div class="schedule-container"></div>
     </div>
 </div>
 {% endblock %}

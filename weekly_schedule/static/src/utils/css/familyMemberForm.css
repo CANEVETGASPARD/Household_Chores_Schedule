@@ -32,7 +32,7 @@
     background-color: transparent;
     resize: none;
     outline: none;
-    font-family: 'Baloo';
+    font-family: 'baloo';
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
@@ -69,7 +69,7 @@
 
 .legend > label
 {
-    font-family: 'Baloo';
+    font-family: 'baloo';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -89,7 +89,7 @@
 
 .day > p 
 {
-    font-family: 'Baloo';
+    font-family: 'baloo';
     font-style: normal;
     font-weight: 400;
     font-size: 20px;

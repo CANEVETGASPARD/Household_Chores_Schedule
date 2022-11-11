@@ -1,6 +1,8 @@
 import "./utils/css/familyMemberForm";
+import "./utils/css/table";
 import { addAllFilledMemberContainer,addBlankMemberContainer } from "./utils/familyMemberForm";
 import { Schedule } from "./utils/scheduleMakerModels/schedule";
+import {createTable} from "./utils/scheduleTableCreator";
 
 async function fetchFamilyMembersData(): Promise<any> {
     let data : Promise<any> = await fetch("/getFamilyMembersData", {
@@ -34,6 +36,9 @@ generateScheduleButton.addEventListener("click", (e:Event) => {
             console.log(familySchedule.computeNumberOfTaskPerGroupMember());
             console.log(familySchedule.computeHeuristicCost());
             console.log(familySchedule.getSchedule())
+            let table: HTMLTableElement = createTable(familySchedule);
+            let tableContainer= document.querySelector(".schedule-container") as HTMLDivElement;
+            tableContainer.appendChild(table)
         }
     });
 })

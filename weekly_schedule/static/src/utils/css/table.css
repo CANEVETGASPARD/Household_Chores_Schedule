@@ -1,0 +1,35 @@
+@font-face
+{
+    font-family: 'baloo';
+    src: url('../../../assets/polices/baloo/Baloo-Regular.ttf');
+}
+
+.schedule 
+{
+    margin: auto;
+    font-family: "baloo";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 31px;
+    text-align: center;
+    border-collapse:collapse;
+    border-radius: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.schedule td,.schedule th
+{
+    padding: 10px;
+    background-color: #B6D8F2;
+    border-collapse: unset;
+    color: white;
+    font-weight:normal
+}
+
+.mealCell, .taskCell
+{
+    min-width: max-content;
+}
+
