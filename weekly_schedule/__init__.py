@@ -13,7 +13,8 @@ def create_app(test_config=None):
     app.config.from_mapping(
         SECRET_KEY='dev',
         SQLALCHEMY_DATABASE_URI=f'sqlite:///{os.path.join(app.instance_path, DB_NAME)}',
-        SQLALCHEMY_TRACK_MODIFICATIONS=False
+        SQLALCHEMY_TRACK_MODIFICATIONS=False,
+        ENV='development'
     )
     db.init_app(app)
 
@@ -52,5 +53,6 @@ def create_app(test_config=None):
 
 def create_database(app):
     if not os.path.exists(os.path.join(app.instance_path, DB_NAME)):
-        db.create_all(app=app)
-        print('Created Database!')
+        with app.app_context():
+            db.create_all()
+            print('Created Database!')
