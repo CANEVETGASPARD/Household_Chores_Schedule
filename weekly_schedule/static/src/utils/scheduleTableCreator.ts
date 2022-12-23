@@ -48,7 +48,7 @@ function addDayCells(row: HTMLTableRowElement,schedule:Schedule) {
 function addTableBody(schedule: Schedule,tableDomElement:HTMLTableElement) {
     let rows: HTMLTableRowElement[][] = initBodyRows(schedule);
 
-    const mealName: string[] = ["Lunch", "Meal"];
+    const mealName: string[] = ["Lunch", "Diner"];
     addMealCells(rows,mealName,schedule);
 
     const taskName: string[] = ["Set the table", "Unset the table"]
